@@ -1,5 +1,5 @@
 * {
-    background: rgba(135, 206, 235,);
+    background: rgba(135, 206, 235, 1);
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -22,6 +22,7 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    flex-wrap: wrap; /* Ensures blobs wrap in smaller screens */
 }
 
 .blob {
@@ -31,7 +32,7 @@ body {
     background-size: cover;
     background-position: center center;
     margin: 20px;
-    box-shadow: 0 5px 5px 5px rgba(135, 206, 235);
+    box-shadow: 0 5px 5px 5px rgba(135, 206, 235, 1);
     animation: animate 5s ease-in-out infinite;
     transition: all 1s ease-in-out;
 }
@@ -42,5 +43,48 @@ body {
     }
     50% {
         border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+
+/* Media Queries */
+
+/* Large Devices */
+@media (max-width: 1200px) {
+    .blob {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* Medium Devices */
+@media (max-width: 992px) {
+    .blob {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* Small Devices */
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px;
+    }
+    .blob {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .blob {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
     }
 }
